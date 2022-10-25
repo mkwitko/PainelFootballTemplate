@@ -48,20 +48,6 @@ export class UserClass {
     this.userEdit = value;
   }
 
-  setAnon(bool) {
-    if (bool) {
-      this.user = {
-        userEmail: environment.global.app.anon.email,
-        userName: environment.global.app.anon.name,
-      };
-    }
-    this.anon = true;
-  }
-
-  setSocioInfo(socioInfo) {
-    this.whiteLabel.setSocioInfo(socioInfo);
-  }
-
   addUser(who: any, id: string, withDate = true) {
     if (withDate) {
       who.userCreatedAt = Date.now();
