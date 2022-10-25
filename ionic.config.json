@@ -1,0 +1,7 @@
+{
+  "name": "PainelFootballTemplate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

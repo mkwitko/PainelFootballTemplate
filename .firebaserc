@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "clube-template": {
+      "hosting": {
+        "app": [
+          "clube-template"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "clube-template"
+  }
+}
