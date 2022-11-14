@@ -14,6 +14,6 @@ export class FooterComponent implements OnInit {
   ngOnInit() {}
 
   add() {
-    this.navigation.goTo(this.url + '-details');
+    this.navigation.goTo(this.url + '-crud');
   }
 }

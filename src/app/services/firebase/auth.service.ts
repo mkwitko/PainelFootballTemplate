@@ -1,3 +1,4 @@
+import { MenuService } from './../menu/menu.service';
 import { ScreenService } from './../screen/screen.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { User } from 'src/app/interfaces/auth/user';
@@ -27,7 +28,8 @@ export class AuthService {
     private navigation: NavigationService,
     private screen: ScreenService,
     private translante: TranslateService,
-    private userClass: UserClass
+    private userClass: UserClass,
+    private menu: MenuService
   ) {
     this.auth = getAuth();
   }
@@ -37,6 +39,7 @@ export class AuthService {
       this.screen.presentToast('Preencha todos os campos.');
     } else {
       await this.screen.presentLoading();
+      this.menu.menuControl(true);
       return from(
         signInWithEmailAndPassword(
           this.auth,
@@ -55,6 +58,7 @@ export class AuthService {
 
   async loginGuest() {
     await this.screen.presentLoading();
+    this.menu.menuControl(true);
     return from(
       signInAnonymously(this.auth)
         .catch((err) => {
@@ -68,6 +72,7 @@ export class AuthService {
 
   async logout() {
     this.navigation.goTo('login');
+    this.menu.menuControl(false);
     await this.screen.presentLoading();
     return from(
       this.auth

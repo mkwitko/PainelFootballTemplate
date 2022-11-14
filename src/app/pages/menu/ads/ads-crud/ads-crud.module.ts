@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AdsCrudPageRoutingModule } from './ads-crud-routing.module';
 
 import { AdsCrudPage } from './ads-crud.page';
+import { MyCustomHeader } from 'src/app/components/header/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AdsCrudPageRoutingModule
+    AdsCrudPageRoutingModule,
+    MyCustomHeader,
   ],
-  declarations: [AdsCrudPage]
+  declarations: [AdsCrudPage],
 })
 export class AdsCrudPageModule {}

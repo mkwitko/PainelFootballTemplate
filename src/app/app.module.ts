@@ -83,7 +83,13 @@ import { SharedModule } from './modules/shared/shared/shared.module';
 
     //Toast
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot({
+      maxOpened: 2,
+      autoDismiss: true,
+      preventDuplicates: true,
+      countDuplicates: true,
+      resetTimeoutOnDuplicate: true,
+    }), // ToastrModule added
 
     //Cache
     IonicStorageModule.forRoot(),

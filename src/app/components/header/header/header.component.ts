@@ -1,5 +1,6 @@
 import { ScreenService } from 'src/app/services/screen/screen.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { WhiteLabelService } from 'src/app/services/white-label/white-label.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() title = 'E.C. Juventude';
   @Input() url;
   @Input() menu = true;
   @Input() modal = false;
   @Input() login = false;
 
-  constructor(private screen: ScreenService) {}
+  constructor(
+    private screen: ScreenService,
+    private whiteLabel: WhiteLabelService
+  ) {}
 
   ngOnInit() {}
 

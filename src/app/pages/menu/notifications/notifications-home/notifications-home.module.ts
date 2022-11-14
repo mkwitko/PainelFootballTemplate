@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { NotificationsHomePageRoutingModule } from './notifications-home-routing.module';
 
 import { NotificationsHomePage } from './notifications-home.page';
+import { MyCustomFooter } from 'src/app/components/footer/footer/footer.module';
+import { MyCustomHeader } from 'src/app/components/header/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NotificationsHomePageRoutingModule
+    NotificationsHomePageRoutingModule,
+    MyCustomHeader,
+    MyCustomFooter,
   ],
-  declarations: [NotificationsHomePage]
+  declarations: [NotificationsHomePage],
 })
 export class NotificationsHomePageModule {}

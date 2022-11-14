@@ -1,9 +1,56 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notifications-home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
+    <div class="ion-margin">
+        <!-- <ion-item>
+            <ion-label position="floating">Titulo</ion-label>
+            <ion-input [(ngModel)]="notification.title" type="text"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label position="floating">Escreva sua mensagem</ion-label>
+            <ion-textarea [(ngModel)]="notification.message"></ion-textarea>
+        </ion-item>
 
+        <ion-item *ngIf="myFilter">
+            <ion-label>Filtros</ion-label>
+            <ion-toggle (ionChange)="toggleFiltering($event)" [(ngModel)]="myFilter.active"></ion-toggle>
+        </ion-item>
+
+        <ng-container>
+            <ion-accordion-group multiple class="ion-margin-top" [disabled]="!myFilter.active">
+                <ng-container *ngFor="let item of myFilter.filters">
+                    <ion-accordion class="ion-margin-top" value="{{item.name}}">
+                        <ion-item slot="header" color="primary">
+                            <ion-label color="light">{{item.name}}</ion-label>
+                        </ion-item>
+                        <div class="ion-padding" slot="content">
+                            <ion-accordion-group>
+                                <ng-container *ngFor="let childs of item.child">
+                                    <ion-accordion value="{{childs.name}}">
+                                        <ion-item slot="header" color="secondary">
+                                            <ion-label color="light">{{childs.name}}</ion-label>
+                                        </ion-item>
+                                        <div class="ion-padding" slot="content">
+                                            <ng-container *ngFor="let inputs of childs.inputs">
+                                                <ion-item *ngIf="inputs.type === 'toggle'">
+                                                    <ion-label>{{inputs.name}}</ion-label>
+                                                    <ion-toggle (click)="getFunc(inputs.func, $event, inputs, childs)" [(ngModel)]="inputs.value"></ion-toggle>
+                                                </ion-item>
+                                            </ng-container>
+                                        </div>
+                                    </ion-accordion>
+                                </ng-container>
+                            </ion-accordion-group>
+                        </div>
+                    </ion-accordion>
+                </ng-container>
+            </ion-accordion-group>
+        </ng-container>
+
+        <ion-button (click)="send()" expand="block" fill="clear" shape="round">
+            Enviar
+        </ion-button>
+    </div>
 </ion-content>
+
+<!-- <app-footer></app-footer> -->

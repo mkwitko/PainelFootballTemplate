@@ -1,5 +1,5 @@
 export interface Noticia {
-    titulo?: string;
+  titulo?: string;
   subtitulo?: string;
   texto?: string;
   downUrl?: string;
@@ -9,4 +9,6 @@ export interface Noticia {
   id?: string;
   userId?: string;
   createdAt?: number;
+  index?: number;
+  markToDel?: boolean;
 }

@@ -1,13 +1,8 @@
 import { MasterHelperService } from './../../helpers/masterHelper/master-helper.service';
-import { CacheService } from './../../services/cache/cache.service';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { CrudService } from './../../services/crud/crud.service';
 import { Injectable } from '@angular/core';
-import { ScreenService } from 'src/app/services/screen/screen.service';
-import { TranslateService } from 'src/app/services/translate/translate.service';
 import { User } from 'src/app/interfaces/auth/user';
-import { WhiteLabelService } from 'src/app/services/white-label/white-label.service';
 
 @Injectable()
 export class UserClass {
@@ -22,10 +17,7 @@ export class UserClass {
   public cachePathAllUsers = environment.global.paths.users.allUsers;
   public ref = environment.global.paths.users.allUsers;
 
-  constructor(
-    private helper: MasterHelperService,
-    private whiteLabel: WhiteLabelService
-  ) {
+  constructor(private helper: MasterHelperService) {
     this.collection = this.helper.crudHelper.crud.collectionConstructor(
       this.ref
     );

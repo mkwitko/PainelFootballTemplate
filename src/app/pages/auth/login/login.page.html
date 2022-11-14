@@ -1,0 +1,22 @@
+<app-header [login]="true" [menu]="false"></app-header>
+<ion-content>
+    <ion-slides mode="ios">
+        <ion-slide disabled>
+            <div class="slide-inner ion-padding">
+                <p class="ion-text-center">
+                    <img class="logo" src="../../../assets/img/logo.png" alt="">
+                </p>
+                <span>Login</span>
+                <ion-item class="ion-margin-top">
+                    <ion-input type="text" placeholder="E-mail" [(ngModel)]="userLogin.userEmail"></ion-input>
+                </ion-item>
+                <ion-item class="ion-margin-top">
+                    <ion-input type="password" placeholder="Senha" [(ngModel)]="userLogin.password"></ion-input>
+                </ion-item>
+                <ion-button (click)="login()" class="ion-margin-top" color="light" expand="block">
+                    <ion-label>Login</ion-label>
+                </ion-button>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

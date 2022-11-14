@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<ion-content>
+    <ng-container *ngIf="myClass.get()">
+        <ng-container *ngIf="myClass.get().length > 0">
+            <ion-list>
+                <ion-item-sliding *ngFor="let each of this.myClass.get()">
+                    <ion-item button (click)="goTo(each.id)">
+                        <ion-avatar slot="start">
+                            <img src={{each.downUrl}} alt="../assets/img/default-user.png">
+                        </ion-avatar>
+                        <ion-label>
+                            {{ each.nome }}
+                        </ion-label>
+                        <ion-badge color="primary" mode="ios">
+                            <ion-label color="light">
+                                {{each.isClub ? 'Clube' : 'Conveniência'}}
+                            </ion-label>
+                        </ion-badge>
+                        <ion-badge *ngIf="each.onOff === true" color="primary" mode="ios">
+                            <ion-label color="light">On</ion-label>
+                        </ion-badge>
+                        <ion-badge *ngIf="each.onOff !== true" color="danger" mode="ios">
+                            <ion-label color="light">Off</ion-label>
+                        </ion-badge>
+                    </ion-item>
+                    <ion-item-options (click)="del(each)" slide="end">
+                        <ion-item-option color="danger">
+                            <ion-icon slot="top" name="trash"></ion-icon>
+                            Excluir
+                        </ion-item-option>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+        </ng-container>
+    </ng-container>
+</ion-content>
+
+<app-footer url="store"></app-footer>

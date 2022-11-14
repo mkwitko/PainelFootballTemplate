@@ -29,6 +29,7 @@
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
     "@ionic/storage-angular": "^3.0.6",
+    "color": "^4.2.3",
     "ionicons": "^6.0.3",
     "ngx-toastr": "^15.2.1",
     "rxjs": "~6.6.0",

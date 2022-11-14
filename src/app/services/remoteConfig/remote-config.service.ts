@@ -14,7 +14,7 @@ export class RemoteConfigService {
     private cache: CacheHelperService
   ) {}
 
-  public async init(update = false): Promise<any> {
+  public async init(update = true): Promise<any> {
     return new Promise((resolve, reject) => {
       this.remoteConfig
         .fetchAndActivate()
@@ -22,6 +22,7 @@ export class RemoteConfigService {
           this.cache
             .getterCache(environment.global.paths.remoteConfig)
             .then((cache) => {
+              console.log('cache - ', cache);
               if (!cache || update) {
                 this.getAll().then((all) => {
                   this.setter(all);
@@ -79,5 +80,6 @@ export class RemoteConfigService {
         this.whiteLabel.app[e[0]] = e[1]['_value'];
       }
     });
+    console.log(this.whiteLabel);
   }
 }

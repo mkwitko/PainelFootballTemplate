@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ScreenService {
   constructor(
     public modalController: ModalController,
-    private toastr: ToastrService,
+    public toastr: ToastrService,
     private alertController: AlertController,
     private loadingController: LoadingController
   ) {}

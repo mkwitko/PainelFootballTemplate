@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>news-home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
+    <ng-container *ngIf="whiteLabel.app.isWordpress && wordpress.get()">
+        <ion-button (click)="load()" expand="block" fill="clear" shape="round">
+            Carregar mais
+        </ion-button>
+    </ng-container>
 
+    <ng-container *ngIf="!whiteLabel.app.isWordpress">
+        <ion-list *ngIf="this.newsClass.get()">
+            <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+                <ng-container *ngFor="let object of this.newsClass.get()">
+                    <ion-item-sliding id={{object.id}}>
+                        <ion-item [disabled]="object.markToDel ? object.markToDel : false" (click)="goTo(object.id)">
+                            <ion-avatar slot="start">
+                                <img src={{object.downUrl}}>
+                            </ion-avatar>
+                            <ion-label>
+                                {{ object.titulo }}
+                            </ion-label>
+                            <!-- <ion-badge class="ion-margin-start" *ngIf="object.home === true" color="primary" mode="ios">Home</ion-badge> -->
+                            <ion-reorder slot="end"></ion-reorder>
+                            <ion-badge *ngIf="object.onOff === true" color="primary" mode="ios">
+                                <ion-label color="light">On</ion-label>
+                            </ion-badge>
+                            <ion-badge *ngIf="object.onOff !== true" color="danger" mode="ios">
+                                <ion-label color="light">Off</ion-label>
+                            </ion-badge>
+                        </ion-item>
+                        <ion-item-options slide="end">
+                            <ion-item-option *ngIf="modeDelete && !object.markToDel" (click)="markToDel(object, true)" color="danger">
+                                <ion-icon slot="top" name="trash"></ion-icon>
+                                Excluir
+                            </ion-item-option>
+                            <ion-item-option *ngIf="modeDelete && object.markToDel" (click)="markToDel(object, false)" color="success">
+                                <ion-icon slot="top" name="trash"></ion-icon>
+                                Cancelar
+                            </ion-item-option>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ng-container>
+            </ion-reorder-group>
+        </ion-list>
+    </ng-container>
 </ion-content>
+
+<ng-container *ngIf="!whiteLabel.app.isWordpress">
+    <ion-footer>
+        <ion-toolbar color="light">
+            <ion-button *ngIf="modeDelete" color="warning" (click)="deleteMode(false)" expand="block">
+                Cancelar
+            </ion-button>
+            <ion-button *ngIf="modeDelete" color="success" (click)="del()" expand="block">
+                Confirmar
+            </ion-button>
+            <ion-button *ngIf="!modeDelete" color="primary" (click)="add()" expand="block">
+                Adicionar
+            </ion-button>
+            <ion-button *ngIf="!modeDelete" color="secondary" (click)="save()" expand="block">
+                Salvar Ordem
+            </ion-button>
+            <ion-button *ngIf="!modeDelete" color="danger" (click)="deleteMode(true)" expand="block">
+                Deletar Notícias
+            </ion-button>
+        </ion-toolbar>
+    </ion-footer>
+</ng-container>

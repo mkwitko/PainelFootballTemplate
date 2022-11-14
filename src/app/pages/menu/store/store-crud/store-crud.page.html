@@ -1,0 +1,45 @@
+<app-header [url]="url"></app-header>
+
+<ion-content>
+    <ion-card>
+        <ion-list *ngIf="object">
+            <ion-item lines="none">
+                <ion-input type="text" name="nome" placeholder="Nome" [(ngModel)]="object.nome"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+                <input [(ngModel)]="fileName" hidden #file type="file" accept="image/*" name="file" (change)="change($event)">
+                <ion-button (click)="file.click()" expand="block">
+                    <p>{{uploadFile !== null ? 'Alterar Foto' : 'Adicionar Foto'}}</p>
+                </ion-button>
+                <ion-button color="danger" *ngIf="uploadFile" (click)="remove()" expand="block" fill="clear" shape="round">
+                    Remover Imagem
+                </ion-button>
+                <p class="ion-margin-start danger" *ngIf="uploadFile">{{uploadFile[0].name}}</p>
+            </ion-item>
+            <ion-label class="ion-margin-start">Tamanho recomendado: 780px 209px</ion-label>
+            <ion-item lines="none">
+                <ion-input type="text" name="link" placeholder="Link" [(ngModel)]="object.link"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-select (ionChange)="changeRoute($event)" placeholder="Rota Interna">
+                    <ion-select-option *ngFor="let item of whiteLabel.app.rotas" value={{item.rota}}>{{item.nome}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Visibilidade</ion-label>
+                <ion-toggle [checked]="object.onOff" (ionChange)="toggle($event)" mode="ios" color="primary"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Incluir na Página do Clube:</ion-label>
+                <ion-toggle [checked]="object.isClub" (ionChange)="toggleClub($event)" mode="ios" color="primary"></ion-toggle>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="primary">
+        <ion-button (click)="save()" fill="clear" color="light" expand="block">
+            Salvar
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

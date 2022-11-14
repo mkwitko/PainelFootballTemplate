@@ -1,3 +1,7 @@
+ion-toolbar {
+    --ion-background-color: linear-gradient(270deg, var(--ion-color-primary-shade) 0%, var(--ion-color-primary-tint) 70%) !important;
+}
+
 ion-title {
     position: absolute;
     top: 0;

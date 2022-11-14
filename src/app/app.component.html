@@ -1,3 +1,43 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-split-pane contentId="menu-content" when="xl">
+        <ion-menu class="menu" contentId="menu-content" side="start" type="overlay">
+            <ion-content>
+                <div class="menu-header-bg"></div>
+
+                <ng-container *ngIf="userClass.get()">
+                    <div class="header-content">
+                        <p color="light" class="ion-margin ion-text-start">v{{version}}</p>
+                        <div class="profile">
+                            <ion-avatar color="light">
+                                <ng-container *ngIf="userClass.get().avatar">
+                                    <img src={{userClass.get().avatar}} alt="">
+                                </ng-container>
+                                <ng-container *ngIf="!userClass.get().avatar">
+                                    <img src="../../../../assets/img/default-user.png" alt="">
+                                </ng-container>
+                            </ion-avatar>
+                            <p color="light" *ngIf="userClass.get().userName" class="ion-text-center nome">{{userClass.get().userName}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ion-list lines="none">
+                    <ng-container *ngFor="let a of whiteLabel.app.painelMenu">
+                        <ion-item class="ion-margin-top" [disabled]="getDisabled(a)" (click)="goTo(a.url)">
+                            <ion-icon color="light" slot="start" name={{a.icone}}></ion-icon>
+                            <ion-label color="light">{{a.nome}}</ion-label>
+                        </ion-item>
+                    </ng-container>
+                </ion-list>
+            </ion-content>
+            <ion-footer>
+                <ion-toolbar color="tertiary">
+                    <ion-button fill="clear" (click)="logout()" expand="block">
+                        <ion-label color="light">LOGOUT</ion-label>
+                    </ion-button>
+                </ion-toolbar>
+            </ion-footer>
+        </ion-menu>
+        <ion-router-outlet id="menu-content"></ion-router-outlet>
+    </ion-split-pane>
 </ion-app>

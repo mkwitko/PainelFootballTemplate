@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { NewsCrudPageRoutingModule } from './news-crud-routing.module';
 
 import { NewsCrudPage } from './news-crud.page';
+import { MyCustomHeader } from 'src/app/components/header/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewsCrudPageRoutingModule
+    NewsCrudPageRoutingModule,
+    MyCustomHeader,
   ],
-  declarations: [NewsCrudPage]
+  declarations: [NewsCrudPage],
 })
 export class NewsCrudPageModule {}

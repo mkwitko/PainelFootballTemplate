@@ -1,9 +1,7 @@
 export interface UpdateBoolean {
-  Banner?: boolean;
-  Conveniencia?: boolean;
-  Elenco?: boolean;
-  Noticia?: boolean;
-  Playlist?: boolean;
-  Propaganda?: boolean;
-  PlaylistExclusiva?: boolean;
+  banner?: boolean;
+  ads?: boolean;
+  news?: boolean;
+  redirectCard?: boolean;
+  [key: string]: boolean;
 }

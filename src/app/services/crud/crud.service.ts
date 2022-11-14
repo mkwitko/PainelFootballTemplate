@@ -8,6 +8,8 @@ import { ScreenService } from '../screen/screen.service';
 import { map } from 'rxjs/operators';
 import { TranslateService } from '../translate/translate.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { WriteBatch } from '@angular/fire/firestore';
+import { observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -89,13 +91,45 @@ export class CrudService {
       });
   }
 
-  delete(collection: AngularFirestoreCollection, id: string) {
+  async delete(collection: AngularFirestoreCollection, id: string) {
+    await this.screen.presentLoading();
     return collection
       .doc(id)
       .delete()
+      .then(() => {
+        this.screen.dismissloading();
+      })
       .catch((err) => {
+        this.screen.dismissloading();
         this.screen.presentToast(this.translate.verifyErrors(err.code));
       });
+  }
+
+  async deleteMultiple(
+    collection: AngularFirestoreCollection,
+    objs
+  ): Promise<any> {
+    await this.screen.presentLoading();
+    var batch = this.afs.firestore.batch();
+    return new Promise((resolve, reject) => {
+      objs.forEach((element) => {
+        batch.delete(collection.doc(element.id).ref);
+        if (element.downUrl) {
+          const photoRef = this.storage.refFromURL(element.downUrl);
+          photoRef.delete();
+        }
+      });
+      batch
+        .commit()
+        .then((res) => {
+          this.screen.dismissloading();
+          resolve(res);
+        })
+        .catch((err) => {
+          this.screen.dismissloading();
+          reject(err);
+        });
+    });
   }
 
   //******* Uploads ******//
