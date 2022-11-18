@@ -18,6 +18,7 @@ export class NotificationsHomePage {
     filters: [
       {
         name: 'Filtros Base',
+        type: 'base',
         child: [
           {
             name: 'Segmentos',
@@ -27,18 +28,21 @@ export class NotificationsHomePage {
                 value: true,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'Subscribed Users',
               },
               {
                 name: 'Usuários Ativos',
                 value: false,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'Active Users',
               },
               {
                 name: 'Usuários Inativos',
                 value: false,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'Inactive Users',
               },
             ],
           },
@@ -46,6 +50,7 @@ export class NotificationsHomePage {
       },
       {
         name: 'Associados',
+        type: 'socios',
         child: [
           {
             name: 'Sócios',
@@ -55,18 +60,21 @@ export class NotificationsHomePage {
                 value: true,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'nao-identificado',
               },
               {
                 name: 'Sócios',
                 value: false,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'socio',
               },
               {
                 name: 'Não Sócios',
                 value: false,
                 func: this.toggle,
                 type: 'toggle',
+                return: 'nao-socio',
               },
             ],
           },
