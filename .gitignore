@@ -32,6 +32,9 @@ npm-debug.log*
 /plugins
 /www
 
+/src/assets/whiteLabel/logo.png
+/src/environments/firebase.ts
+package-lock.json
 # Firebase
 .firebase
 *-debug.log
