@@ -20,8 +20,6 @@ export class NotificationsService {
       included_segments: ['Subscribed Users'],
       contents: {
         pt: 'Teste',
-        en: 'English or Any Language Message',
-        es: 'Spanish Message',
       },
       name: 'INTERNAL_CAMPAIGN_NAME',
     }),
