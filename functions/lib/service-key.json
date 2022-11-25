@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "backup-juventude",
+    "private_key_id": "01ef303695581a722802a99761522617ce830984",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDjeFO5DVk797bb\n1y5tT8e6VwWwew/eoiYict2wcgAjwc8W4ujPTmjKJ3FIajjvNYsoU1W/vDnKUAR2\nIm5QhpknVcT+sTEC+RONphx0BqwpkuBGCEiENgDh62XHfTKVYoKnvJXzYGT/Tzcd\nzzsrl2Eubj8PpwlOvCu9v5cIHfKlMPAMYZd5pjSF7BnqaU3uwKv6XmSTvbO5H+ds\n4x6KYLOqj8JW0zzD1TvVTYAuyOkfKKUB1faIZe3QcYA2DonZi8DOTglnUMEuJeQB\nAYpq51eK/4+l5Hmwn+uoVClnON9f3PvalK5cpwFlfOyqW32xE6puDvBviLwJEs6U\nq9y3fmPnAgMBAAECggEANrNo7sdW/iTDxHoqn/7feOAUbiwp1NAJe59D0HqZrf+d\nXVOTyMaCTJrPkyp4Jo4puLjRlhodi5lSeVYuUQ8NJXhqtxTFRIHBQf8AOKaiIB1B\n8ZVsWt7ht3J0N1TUJThbUxr2tGAp6XuTNYfwIrt0k0XPxGPWyShXHHpGR51sDG0U\nPMm6jxAdl/6ZHP+1BH9Lidazx8OQp++xLI5leLQJzIok62IcVl2s/pda4hNepvqq\nNxye3FYtCRsVkCkl83tKzlooo6daTb2c+ScxrMTueIvYQMj8rgiDA54RYUVEmwmp\n/DWOUKGIil/Fggy9/vjQb2WoIppoC85xpsPDw+54AQKBgQDyfuEn2ZbVAvZFl/vW\nWburh36JOyTrHqjcRiWDymXhHoOVwHByAhV7gjdFSGwFW5yWEDVLuQAZELkiZJ/k\nVK3xpnMPytt1vPOiASXxK+kjEg3E7eQJBu4xjPNCe+p/kmbSyZbrQZ1pRHf6fFnR\np9JPCsc6y9qZQWMWaT3U+AzRJwKBgQDwIzx7splu+UajyuCRw3in71RUe9LdNVvd\nuuPG0T0OUHd9EPGcW3I/NzUBDJinjyf6Yg13uXwHs1+AuMNGMOYnXVBV6SDcYf5d\nLcrKCufuV0ACIcKgHDmjCfKft7z+2wEf3+C+ESnuvdzsbq9IkI1ByM0szHFoEm6G\ntE7uaaQPQQKBgQDegAbNzruz5YzcXFDJ4/nrsF4tQqRkS/R6cK6ZV0vVnG72J+XE\n5h6Z/egC3SmoXN+3XVXZjf0GAq8sXJHNKtmTobtvoR1u0ZnmaxFKUZUQBc+2guS6\nV66UrpTByvtmZImOHUQpxkHNxfIkVpb/ZPH2bphRXZzNBA8MEDKYx6TS/wKBgQCY\nsj8+hOXNzBKgClxcM8igOK4N/qKp6MkeqD04akqBtKcWTtTj0L5H9kns/d6ABaat\nLvZTYA2/M88RoesB0gw3kb2Is3Ii0OkWxQyDBwZN5wsbj+4bM3du9d9iskoqYIZJ\nh2l4Up+wYOh/Ky6oXMqFvzLAPswKGlZPr43VSjV5QQKBgDRpGW4ZPRHf+5mRWAH+\n3KcYrAUWbsN+Got4HxeZd8nMYH3goZI/hXOtGrqPlX2xhnWSQa3j19MZdE/0K/Dg\nqpFbDWu0mXUT4q7mfZpuCFhRg89ZsEyPuknAcnqZVugYVyjonZcH73Fa0cuqqDB9\n6kYJRV/XtcLyTeo7wo1YMhNF\n-----END PRIVATE KEY-----\n",
+    "client_email": "backup-juve@backup-juventude.iam.gserviceaccount.com",
+    "client_id": "113041355193959194593",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/backup-juve%40backup-juventude.iam.gserviceaccount.com"
+}
