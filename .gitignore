@@ -38,5 +38,6 @@ package-lock.json
 /functions
 # Firebase
 .firebase
+.firebaserc
 *-debug.log
 .runtimeconfig.json
