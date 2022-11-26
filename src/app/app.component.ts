@@ -37,7 +37,13 @@ export class AppComponent {
       this.auth.getAuth().onAuthStateChanged((user) => {
         if (user) {
           this.update.getId().then((res) => {
-            this.update.setId(res.id);
+            if(res)
+            {
+              this.update.setId(res.id);
+            } else 
+            {
+              this.update.init();
+            }
             this.master.setUser(user.uid);
             this.master.set();
             if (this.whiteLabel.app.isWordpress) {

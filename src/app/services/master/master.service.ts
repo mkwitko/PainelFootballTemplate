@@ -39,10 +39,6 @@ export class MasterService {
       .then((res) => {
         if (res) {
           this.userClass.set(res);
-          // this.auth.auth.currentUser.getIdTokenResult().then((token) => {
-          //   console.log(token);
-          // });
-          // this.push.init();
         }
       });
   }
@@ -78,7 +74,6 @@ export class MasterService {
 
   set(api = true) {
     this.setter();
-
     this.updateManager.setClass().then((shouldUpdate) => {
       if (shouldUpdate) {
         this.checkUpdate(shouldUpdate).then((res: UpdateBoolean) => {
