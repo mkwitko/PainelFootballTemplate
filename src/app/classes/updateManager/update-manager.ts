@@ -4,8 +4,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { CrudService } from './../../services/crud/crud.service';
 import { Injectable } from '@angular/core';
-import { ScreenService } from 'src/app/services/screen/screen.service';
-import { TranslateService } from 'src/app/services/translate/translate.service';
 
 @Injectable()
 export class UpdateManagerClass {
@@ -21,8 +19,25 @@ export class UpdateManagerClass {
   private ref = environment.global.paths.update;
   private id: string;
 
+  private container: UpdateInterface = {
+    banner: new Date().getTime(),
+    ads: new Date().getTime(),
+    news: new Date().getTime(),
+    redirectCard: new Date().getTime(),
+  };
+
   constructor(private crud: CrudService, private cache: CacheService) {
     this.collection = this.crud.collectionConstructor(this.ref);
+  }
+
+  init(): Promise<any>
+  {
+   return new Promise((resolve, reject) => {
+    this.crud.add(this.collection, this.container).then((res) => {
+      window.location.reload();
+      resolve(res);
+    });
+   })
   }
 
   getAllHttp(): Promise<any> {
